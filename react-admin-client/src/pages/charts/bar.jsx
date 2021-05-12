@@ -5,10 +5,11 @@ import ReactEcharts from 'echarts-for-react'
 export default class Bar extends Component {
 
   state = {
-    sales: [5, 20, 36, 10, 10, 20], // 销量的数组
-    stores: [6, 10, 25, 20, 15, 10], // 库存的数组
+    Nov: [ 1207, 1682, 1960, 2684, 3723], // 双十一
+    Up: [ 0.1, 0.16, 0.36, 0.38, 0.31], // 双十二
   }
 
+  //数据更新
   update = () => {
     this.setState(state => ({
       sales: state.sales.map(sale => sale + 1),
@@ -22,41 +23,90 @@ export default class Bar extends Component {
   /*
   返回柱状图的配置对象
    */
-  getOption = (sales, stores) => {
+  getOption = (Nov, Up) => {
     return {
       title: {
-        text: 'ECharts 入门示例'
+        text: '2021年前五月数据'
       },
       tooltip: {},
       legend: {
-        data:['销量', '库存']
+        data:['总销量', '增长率']
       },
       xAxis: {
-        data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        data: ['1月','2月','3月','4月','5月']
       },
       yAxis: {},
       series: [{
-        name: '销量',
+        name: '总销量',
         type: 'bar',
-        data: sales
+        data: Nov
       }, {
-        name: '库存',
-        type: 'bar',
-        data: stores
+        name: '增长率',
+        type: 'line',
+        data: Up
       }]
     }
   }
 
+
+  /**
+   * 饼图数据
+   * @returns {*}
+   */
+  getOption2 = () => {
+    return {
+      title : {
+        text:'交易金额',
+        x:'center'
+      },
+      tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'left',
+        data: ['书籍','文具','服饰','食物','生活用品']
+      },
+      series : [
+        {
+          name: '访问来源',
+          type: 'pie',
+          radius : '55%',
+          center: ['50%', '60%'],
+          data:[
+            {value:3176, name:'书籍'},
+            {value:1444, name:'文具'},
+            {value:3198, name:'服饰'},
+            {value:890, name:'食物'},
+            {value:2548, name:'生活用品'}
+          ],
+          itemStyle: {
+            emphasis: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
+        }
+      ]
+    };
+
+  }
   render() {
-    const {sales, stores} = this.state
+    const {Nov, Up} = this.state
     return (
       <div>
         <Card>
-          <Button type='primary' onClick={this.update}>更新</Button>
+          <Button type='primary' onClick={this.update} disabled>更新</Button>
         </Card>
 
-        <Card title='柱状图一'>
-          <ReactEcharts option={this.getOption(sales, stores)} />
+        <Card>
+          <ReactEcharts option={this.getOption(Nov, Up)} />
+        </Card>
+
+        <Card title='2021年前五月销售物品分类'>
+          <ReactEcharts option={this.getOption2()} style={{height: 300}}/>
         </Card>
 
       </div>

@@ -52,7 +52,7 @@ export default class Line extends Component {
     return (
       <div>
         <Card>
-          <Button type='primary' onClick={this.update}>更新</Button>
+          <Button type='primary' disabled>更新</Button>
         </Card>
 
         <Card title='折线图一'>
