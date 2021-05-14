@@ -41,28 +41,28 @@ const menuList = [
         key: '/charts/bar',
         icon: 'bar-chart'
       },
-      {
-        title: '测试',
-        key: '/charts/test',
-        icon: 'tags'
-      },
-      {
-        title: '折线图',
-        key: '/charts/line',
-        icon: 'line-chart'
-      },
-      {
-        title: '饼图',
-        key: '/charts/pie',
-        icon: 'pie-chart'
-      },
+      // {
+      //   title: '折线图',
+      //   key: '/charts/line',
+      //   icon: 'line-chart'
+      // },
+      // {
+      //   title: '饼图',
+      //   key: '/charts/pie',
+      //   icon: 'pie-chart'
+      // },
 
     ]
   },
-  {
-    title:'购物车',
-    key:'/cart',
-    icon:'shopping-cart'
-  }
+    {
+      title:'购物车',
+      key:'/cart',
+      icon:'shopping-cart'
+    },
+  // {
+  //   title:'测试',
+  //   key:'/cartTest',
+  //   icon:'cart'
+  // }
 ]
 export default menuList

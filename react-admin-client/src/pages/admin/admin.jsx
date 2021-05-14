@@ -50,7 +50,7 @@ class Admin extends Component {
               <Route path="/charts/bar" component={Bar}/>
               <Route path="/charts/pie" component={Pie}/>
               <Route path="/charts/line" component={Line}/>
-              <Route path="/charts/test" component={Test} />
+              <Route path="/cartTest" component={Test} />
               <Route path="/cart" component={PathCart}/>
               <Route component={NotFound}/>
             </Switch>
