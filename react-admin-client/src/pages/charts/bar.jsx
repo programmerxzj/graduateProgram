@@ -56,7 +56,7 @@ export default class Bar extends Component {
   getOption2 = () => {
     return {
       title : {
-        text:'交易金额',
+        text:'交易量',
         x:'center'
       },
       tooltip : {

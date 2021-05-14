@@ -14,6 +14,7 @@ import User from '../user/user'
 import Bar from '../charts/bar'
 import Line from '../charts/line'
 import Pie from '../charts/pie'
+import Test from '../charts/test'
 import PathCart from '../cart/pathCart'
 import NotFound from '../not-found/not-found'
 
@@ -49,6 +50,7 @@ class Admin extends Component {
               <Route path="/charts/bar" component={Bar}/>
               <Route path="/charts/pie" component={Pie}/>
               <Route path="/charts/line" component={Line}/>
+              <Route path="/charts/test" component={Test} />
               <Route path="/cart" component={PathCart}/>
               <Route component={NotFound}/>
             </Switch>
